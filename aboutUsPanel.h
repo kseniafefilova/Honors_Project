@@ -52,12 +52,22 @@ public:
       // Unite sizers
       factsAndImageSizer->Add(factsSizer, 0, wxALIGN_LEFT);
 
-      // Add the image to the sizer
-      wxJPEGHandler *handler = new wxJPEGHandler;
-      wxImage::AddHandler(handler);
-      wxStaticBitmap *image = new wxStaticBitmap(this, wxID_ANY, wxBitmap("environment.jpeg", wxBITMAP_TYPE_JPEG), wxPoint(60,100), wxSize(400, 400));
-      factsAndImageSizer->Add(image, 0, wxLEFT | wxRIGHT | wxALIGN_TOP, 10);
+      // Adding an image and exception handling( in case the format is wrong or there are some problems with loading the image)
+      try {
+          wxJPEGHandler *handler = new wxJPEGHandler;
+          wxImage::AddHandler(handler);
+          wxBitmap bitmap("environment.jpeg", wxBITMAP_TYPE_JPEG);
 
+          if (!bitmap.IsOk()) {
+              throw wxString(wxT("Error loading JPEG image"));
+          }
+
+          wxStaticBitmap *image = new wxStaticBitmap(this, wxID_ANY, bitmap, wxPoint(60, 100), wxSize(400, 400));
+          factsAndImageSizer->Add(image, 0, wxLEFT | wxRIGHT | wxALIGN_TOP, 10);
+
+      } catch (const wxString& errorMessage) {
+          wxMessageBox(errorMessage, wxT("Error"), wxOK | wxICON_ERROR);
+      }
 
       // Add the factsandImages sizer to the main sizer
       sizer->Add(factsAndImageSizer, 0, wxALL | wxALIGN_CENTER, 10);

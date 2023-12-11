@@ -164,6 +164,12 @@ MyFrame::MyFrame(const wxString &title, const wxPoint &pos, const wxSize &size)
   bookPurchasePanel->GetmyPagebutton()->Bind(wxEVT_BUTTON,
       &MyFrame::OnMyPagebuttonClick, this);
 
+  myPage->GetbuyRentbutton()->Bind(wxEVT_BUTTON,
+      &MyFrame::OnBuyRentbuttonClick, this);
+
+  myPage->GetsellLendbutton()->Bind(wxEVT_BUTTON,
+    &MyFrame::OnSellLendbuttonClick, this);
+
   //Setting background
   this->SetBackgroundStyle(wxBG_STYLE_CUSTOM);
   this->Bind(wxEVT_PAINT, &MyFrame::OnPaint, this);
@@ -199,6 +205,7 @@ void MyFrame::OnSellLendbuttonClick(wxCommandEvent &event) {
   bookPurchasePanel->Hide();
   contentPanelsell->Show();
   aboutUsPanel->Hide();
+  myPage->Hide();
   this->Layout();
 }
 
@@ -209,6 +216,7 @@ void MyFrame::OnBuyRentbuttonClick(wxCommandEvent &event) {
   contentPanelsell->Hide();
   aboutUsPanel->Hide();
   bookPurchasePanel->Hide();
+  myPage->Hide();
   this->Layout();
 }
 
@@ -219,6 +227,7 @@ void MyFrame::OnAboutUsbuttonClick(wxCommandEvent &event) {
   contentPanelsell->Hide();
   bookPurchasePanel->Hide();
   aboutUsPanel->Show();
+  myPage->Hide();
   this->Layout();
 }
 
@@ -230,6 +239,7 @@ void MyFrame::OnBookClicked(wxCommandEvent& event) {
   contentPanelsell->Hide();
   aboutUsPanel->Hide();
   bookPurchasePanel->Show();
+  myPage->Hide();
   this->Layout();
   this->Refresh();
 }

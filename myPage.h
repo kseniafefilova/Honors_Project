@@ -1,3 +1,4 @@
+#include <fstream>
 #include <wx/wx.h>
 #include <wx/listctrl.h>
 #include <wx/sizer.h>
@@ -33,7 +34,7 @@ public:
         bookshelfListCtrl->InsertColumn(0, "Title", wxLIST_FORMAT_LEFT, 150);
         bookshelfListCtrl->InsertColumn(1, "Author", wxLIST_FORMAT_LEFT, 120);
         bookshelfListCtrl->InsertColumn(2, "Status", wxLIST_FORMAT_LEFT, 80);
-
+          
         // User's notifications
         wxStaticText* notifications = new wxStaticText(this, wxID_ANY, "Notifications");
         notificationsTextCtrl = new wxTextCtrl(this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE | wxTE_READONLY);

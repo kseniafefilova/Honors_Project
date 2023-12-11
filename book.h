@@ -21,7 +21,7 @@ public:
     this->author = author;
     this->subject = subject;
     this->imageName = imageName;
-  };
+  }
 
   string GetTitle() const { return title; }
   string GetAuthor() const { return author; }

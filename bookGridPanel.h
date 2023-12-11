@@ -3,6 +3,8 @@
 #include "book.h"
 #include "bookPurchasePanel.h"
 #include <vector>
+#include <iostream>
+#include <fstream>
 #include <wx/generic/gridctrl.h>
 #include <wx/grid.h>
 #include <wx/image.h>
@@ -77,6 +79,22 @@ void BookGridPanel::CreateImageGrid() {
 
   this->SetSizer(gridSizer);
   gridSizer->Layout();
+  
+  // Saving a list of available books in txt file availableBooks
+  ofstream outputFile("availableBooks.txt");
+
+      if (!outputFile.is_open()) {
+          cout << "Error opening file: " << "availableBooks.txt" << endl;
+      }
+
+      for (int i = 0; i < books.size(); i++) {
+          outputFile << "BOOK " << i + 1 << endl;
+          outputFile << "Title: " << books.at(i).GetTitle() << " ";
+          outputFile << "Authors: " << books.at(i).GetAuthor() << " ";
+          outputFile << "Course: " << books.at(i).GetSubject() << " ";
+      }
+
+      outputFile.close();
 }
 
 #endif

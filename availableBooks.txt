@@ -1,0 +1,7 @@
+BOOK 1
+Title: Digital Design, with an introduction to the Verilog HDL, VHDL and system Verilog Authors: Morris Mano, Michael Ciletti Course: CSC215 BOOK 2
+Title: Introduction To MIPS Assembly Language Programming Authors: Charles W. Kann Course: CSC215 BOOK 3
+Title: Discrete Mathematics and Its Applications, 7th Edition Authors: Kenneth H. Rosen Course: CSC231 BOOK 4
+Title: Starting Out with C++ Authors: Tony Gaddis Course: CSC211 BOOK 5
+Title: Physics for scientists and engineers Authors: Douglas C. Giancoli Course: PHY215 BOOK 6
+Title: The Advanced Reading-Writing Connection Authors: John Langan Course: CRT100 
